@@ -30,7 +30,7 @@ public class RegisterController {
                     userRepository.addUser(user);
                     Alerts.showConfirmation("User successfully registered");
                 } catch (SQLException e) {
-                    Alerts.showError(e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+                    Alerts.showError(e.getMessage());
                 }
             }
             else{
