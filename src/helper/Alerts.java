@@ -12,10 +12,10 @@ public class Alerts {
         alert.showAndWait();
     }
 
-    public static void showConfirmation(String message){
-        alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Confirmation");
+    public static void showInformation(String message){
+        alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Information");
         alert.setContentText(message);
         alert.showAndWait();
     }
@@ -27,5 +27,7 @@ public class Alerts {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
 }
 

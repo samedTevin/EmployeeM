@@ -9,7 +9,7 @@ import repository.UserRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
+
 
 public class RegisterController {
 
@@ -28,7 +28,7 @@ public class RegisterController {
                 User user = new User(username.getText(), password.getText());
                 try {
                     userRepository.addUser(user);
-                    Alerts.showConfirmation("User successfully registered");
+                    Alerts.showInformation("User successfully registered");
                 } catch (SQLException e) {
                     Alerts.showError(e.getMessage());
                 }

@@ -23,6 +23,8 @@ public class LoginController {
         try {
             if(userRepository.findUser(user)){
                 UserSession.username = user.getUsername();
+                UserSession.password = user.getPassword();
+                UserSession.id = user.getId();
                 SceneChanger sceneChanger = new SceneChanger();
                 sceneChanger.changeScene("/view/Dashboard.fxml","Dashboard",event);
             }

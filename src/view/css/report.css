@@ -1,0 +1,56 @@
+/* ------------------ Root / Genel Stil ------------------ */
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #eaf0f4, #d4e2ec);
+    -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
+}
+
+/* ------------------ Label ------------------ */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: 600;
+}
+
+/* ------------------ Charts (PieChart, BarChart, ScatterChart) ------------------ */
+.chart {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0c4de;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 10;
+}
+
+.chart-legend {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2c3e50;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: 600;
+}
+
+/* ------------------ Button (küçük, tema uyumlu) ------------------ */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 14 6 14;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0.0, 0, 1);
+    -fx-min-width: 80px;
+    -fx-min-height: 32px;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #2e86c1);
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2e86c1, #1b4f72);
+}
