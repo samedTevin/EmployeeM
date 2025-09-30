@@ -2,10 +2,10 @@ package repository;
 
 import helper.Alerts;
 import model.User;
-import util.Database;
+import utils.Database;
 
 import java.sql.*;
-import java.util.Arrays;
+
 
 public class UserRepository {
     Connection connection;
@@ -25,7 +25,8 @@ public class UserRepository {
             preparedStatement.execute();
         }
         catch(SQLException e){
-            Alerts.showError(e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+            database.showError(e);
+            throw (e);
         }
         finally {
             if(preparedStatement != null) preparedStatement.close();
@@ -50,7 +51,8 @@ public class UserRepository {
             }
         }
         catch (SQLException e) {
-            Alerts.showError(e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+            database.showError(e);
+            throw (e);
         }
         finally{
             if(resultSet != null){resultSet.close();}

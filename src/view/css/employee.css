@@ -88,8 +88,8 @@
     -fx-border-radius: 8;
     -fx-background-radius: 8;
     -fx-padding: 4 10 4 10;
-    -fx-font-size: 14px;
-    -fx-min-height: 32px;
+    -fx-font-size: 12px;
+    -fx-min-height: 40px;
 }
 
 .combo-box:focused {

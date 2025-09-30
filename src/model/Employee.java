@@ -9,10 +9,19 @@ public class Employee {
     private String department;
     private double salary;
     private String status;
-    private int rating;
+    private double rating;
 
 
-    public Employee(int id, String name, String position, String department, double salary, String status, int rating) {
+    public Employee(String name, String position, String department, double salary, String status, double rating) {
+        this.name = name;
+        this.position = position;
+        this.department = department;
+        this.salary = salary;
+        this.status = status;
+        this.rating = rating;
+    }
+
+    public Employee(int id, String name, String position, String department, double salary, String status, double rating) {
         this.id = id;
         this.name = name;
         this.position = position;
@@ -22,16 +31,13 @@ public class Employee {
         this.rating = rating;
     }
 
+
     public Employee(){
 
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -74,11 +80,11 @@ public class Employee {
         this.status = status;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
