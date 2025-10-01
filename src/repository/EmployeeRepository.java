@@ -1,5 +1,7 @@
 package repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Employee;
 import utils.Database;
 
@@ -57,11 +59,34 @@ public class EmployeeRepository {
         }
     }
 
-    public void update() throws SQLException {
+    public void update(Employee employee) throws SQLException {
+        try{
+            connection = database.getConnection();
+            String sql = "UPDATE employees SET name = ?, position = ?, department = ?, salary = ?, status = ?, rating = ? WHERE id = ? ";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, employee.getName());
+            preparedStatement.setString(2, employee.getPosition());
+            preparedStatement.setString(3, employee.getDepartment());
+            preparedStatement.setDouble(4, employee.getSalary());
+            preparedStatement.setString(5, employee.getStatus());
+            preparedStatement.setDouble(6, employee.getRating());
+            preparedStatement.setInt(7, employee.getId());
+            preparedStatement.execute();
+        }
+        catch(SQLException e){
+            database.showError(e);
+            throw(e);
+        }
+        finally{
+            if(connection != null) connection.close();
+            if(preparedStatement != null) preparedStatement.close();
+        }
+
     }
 
-    public List<Employee> show() throws SQLException {
-        List<Employee> employees = new ArrayList<>();
+    public ObservableList<Employee> show() throws SQLException {
+        ObservableList<Employee> employees = FXCollections.observableArrayList(); {
+        };
         try{
             connection = database.getConnection();
             statement = connection.createStatement();
@@ -93,14 +118,24 @@ public class EmployeeRepository {
         return employees;
     }
 
-    public void search(Employee employee) throws SQLException {
+    public Employee search(int id) throws SQLException {
+        Employee employee = null;
         try{
             connection = database.getConnection();
-            statement = connection.createStatement();
             String sql = "SELECT * FROM employees WHERE id = ?";
-            resultSet = statement.executeQuery(sql);
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
-                int id;
+                 employee = new Employee(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("position"),
+                        resultSet.getString("department"),
+                        resultSet.getDouble("salary"),
+                        resultSet.getString("status"),
+                        resultSet.getDouble("rating")
+                );
             }
         }
         catch (SQLException e){
@@ -112,6 +147,8 @@ public class EmployeeRepository {
             if(statement != null) statement.close();
             if(resultSet != null) resultSet.close();
         }
+
+        return employee;
     }
 
 }

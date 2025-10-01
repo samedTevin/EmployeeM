@@ -1,5 +1,7 @@
 package model;
 
+
+
 public class User {
 
     private int id;
@@ -12,6 +14,10 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(){
+
     }
 
     public int getId() {
@@ -50,8 +56,16 @@ public class User {
         return updatedAt;
     }
 
-    public String getCreatedAt() {
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String  getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
 

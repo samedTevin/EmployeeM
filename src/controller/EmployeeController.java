@@ -2,9 +2,11 @@ package controller;
 
 import helper.Alerts;
 import helper.SceneChanger;
+import javafx.beans.binding.ObjectExpression;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +16,7 @@ import repository.EmployeeRepository;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EmployeeController implements Initializable {
@@ -55,7 +58,7 @@ public class EmployeeController implements Initializable {
         refreshTable();
     }
 
-    public void addEmployee(ActionEvent actionEvent) throws IOException { // OK
+    public void addEmployee(){
         try{
             Employee employee = new Employee(name.getText(),
                     position.getText(),
@@ -87,11 +90,9 @@ public class EmployeeController implements Initializable {
             Alerts.showError(e.getMessage());
         }
 
-        System.out.println(status.getText());
-
     }
 
-    public void deleteEmployee(ActionEvent actionEvent) throws IOException {
+    public void deleteEmployee(){
 
         Employee selected = employeeTable.getSelectionModel().getSelectedItem();
 
@@ -114,15 +115,67 @@ public class EmployeeController implements Initializable {
 
     }
 
-    public void updateEmployee(ActionEvent actionEvent) throws IOException {
+    public void updateEmployee() throws SQLException, IOException {
+
+        Employee selected = employeeTable.getSelectionModel().getSelectedItem();
+        if(selected != null){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateEmployeeForm.fxml"));
+            DialogPane dialogPane = loader.load();
+
+            UpdateEmployeeController controller = loader.getController();
+            controller.setEmployee(selected);
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Update Employee");
+            dialog.getDialogPane().setExpandableContent(null);
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if(result.isPresent() && result.get() == ButtonType.OK){
+                Employee updated = controller.getUpdatedEmployee();
+                employeeRepository.update(updated);
+                Alerts.showInformation("Employee Updated");
+                refreshTable();
+            }
+            else{
+                Alerts.showError("Employee not updated");
+            }
+        }
+        else{
+            Alerts.showError("Employee Not Selected");
+        }
 
     }
 
-    public void getAllEmployee(ActionEvent actionEvent) throws IOException {
-
+    public void getAllEmployee(){
+        try{
+            employees.setAll(employeeRepository.show());
+        } catch (SQLException e) {
+            Alerts.showError("Database Error: " + e.getMessage());
+        }
     }
-    public void searchEmployee(ActionEvent actionEvent) throws IOException {
 
+    public void searchEmployee(ActionEvent actionEvent){
+        try{
+            int id = Integer.parseInt(search.getText());
+            Employee employee = employeeRepository.search(id);
+            if(employee != null){
+               employees.setAll(employee);
+                Alerts.showInformation("Employee Searched");
+            }
+            else{
+                Alerts.showError("Employee Not Found");
+                refreshTable();
+            }
+
+            search.clear();
+        }
+        catch(NumberFormatException nfe){
+            Alerts.showError("Employee ID must be a number!");
+        }
+        catch(SQLException e){
+            Alerts.showError("Database Error: " + e.getMessage());
+        }
     }
 
     public void refreshTable(){

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="601.0" stylesheets="@css/dialog.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdateEmployeeController">
+    <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+   <buttonTypes>
+      <ButtonType fx:constant="OK" />
+      <ButtonType fx:constant="CANCEL" />
+   </buttonTypes>
+   <content>
+      <VBox alignment="CENTER" prefHeight="488.0" prefWidth="470.0" spacing="10.0">
+         <children>
+            <Label text="Name">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="name" maxHeight="25.0" maxWidth="152.0" minHeight="25.0" minWidth="152.0" prefHeight="25.0" prefWidth="152.0" />
+            <Label text="Position">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="position" layoutX="202.0" layoutY="70.0" maxHeight="25.0" maxWidth="152.0" minHeight="25.0" minWidth="152.0" prefHeight="25.0" prefWidth="152.0" />
+            <Label text="Department">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="department" maxHeight="30.0" maxWidth="152.0" minHeight="30.0" minWidth="140.0" prefHeight="30.0" prefWidth="140.0" />
+            <Label text="Salary">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="salary" layoutX="202.0" layoutY="129.0" maxHeight="25.0" maxWidth="152.0" minHeight="25.0" minWidth="152.0" prefHeight="25.0" prefWidth="152.0" />
+            <Label text="Status">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <CheckBox fx:id="status" mnemonicParsing="false" text="Active" />
+            <Label text="Rating">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Slider fx:id="rating" maxHeight="24.0" maxWidth="152.0" minHeight="24.0" minWidth="152.0" prefHeight="24.0" prefWidth="152.0" />
+         </children>
+      </VBox>
+   </content>
+   <header>
+      <VBox alignment="CENTER" prefHeight="106.0" prefWidth="571.0" spacing="10.0">
+         <children>
+            <Label text="UPDATE EMPLOYEE" />
+            <Separator prefWidth="200.0" />
+            <Label text="Please fill in only the fields you want to change" />
+            <Label text="Leave the others blank to keep their previous values" />
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </header>
+</DialogPane>

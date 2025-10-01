@@ -1,0 +1,124 @@
+/* ------------------ DialogPane / Genel Stil ------------------ */
+.dialog-pane {
+    -fx-background-color: linear-gradient(to bottom right, #eaf0f4, #d4e2ec);
+    -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
+    -fx-padding: 15;
+}
+
+/* ------------------ Label ------------------ */
+.dialog-pane .label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: 600;
+}
+
+/* ------------------ TextField ------------------ */
+.dialog-pane .text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0c4de;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #95a5a6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 3, 0.0, 0, 1);
+    -fx-min-height: 35px;
+}
+
+.dialog-pane .text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2;
+}
+
+/* ------------------ ComboBox ------------------ */
+.dialog-pane .combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0c4de;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5 10 5 10;
+    -fx-font-size: 12px;
+    -fx-min-height: 40px;
+}
+
+.dialog-pane .combo-box:focused {
+    -fx-border-color: #3498db;
+}
+
+/* ------------------ Slider ------------------ */
+.dialog-pane .slider {
+    -fx-control-inner-background: #e0e5e8;
+    -fx-padding: 5 0 5 0;
+}
+
+.dialog-pane .slider .track {
+    -fx-background-color: #b0c4de;
+    -fx-background-radius: 5;
+    -fx-padding: 0.2em 0 0.2em 0;
+}
+
+.dialog-pane .slider .thumb {
+    -fx-background-color: #3498db;
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.0, 0, 1);
+}
+
+/* ------------------ CheckBox ------------------ */
+.dialog-pane .check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+}
+
+.dialog-pane .check-box .box {
+    -fx-border-color: #b0c4de;
+    -fx-border-width: 1.5;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 3;
+}
+
+.dialog-pane .check-box:selected .box {
+    -fx-background-color: #3498db;
+    -fx-border-color: #2980b9;
+}
+
+
+.dialog-pane .button-bar .button {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 6 14 6 14;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0.0, 0, 1);
+    -fx-min-width: 80px;
+    -fx-min-height: 32px;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5dade2, #2e86c1);
+}
+
+.dialog-pane .button-bar .button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2e86c1, #1b4f72);
+}
+
+.dialog-pane .button.ok-button {
+    -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
+    -fx-text-fill: white;
+}
+
+/* Cancel Button - gri */
+.dialog-pane .button.cancel-button {
+    -fx-background-color: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    -fx-text-fill: #2c3e50;
+}
+
+.dialog-pane .button.cancel-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #d5d8db, #bfc9ca);
+}

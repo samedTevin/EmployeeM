@@ -11,6 +11,7 @@ import repository.UserRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 public class LoginController {
 
@@ -22,9 +23,15 @@ public class LoginController {
         User user = new User(username.getText(),password.getText());
         try {
             if(userRepository.findUser(user)){
-                UserSession.username = user.getUsername();
-                UserSession.password = user.getPassword();
-                UserSession.id = user.getId();
+                User detailedUser = userRepository.getUserDetails(user.getUsername());
+                if(detailedUser != null){
+                    UserSession.id = detailedUser.getId();
+                    UserSession.username = detailedUser.getUsername();
+                    UserSession.password = detailedUser.getPassword();
+                    UserSession.dailyNotes = detailedUser.getDailyNotes();
+                    UserSession.created = detailedUser.getCreatedAt();
+                    UserSession.updated = detailedUser.getUpdatedAt();
+                }
                 SceneChanger sceneChanger = new SceneChanger();
                 sceneChanger.changeScene("/view/Dashboard.fxml","Dashboard",event);
             }

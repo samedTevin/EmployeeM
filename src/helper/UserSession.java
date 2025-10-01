@@ -1,5 +1,6 @@
 package helper;
 
+
 public class UserSession {
 
     public static int id;
@@ -7,4 +8,5 @@ public class UserSession {
     public static String password;
     public static String created;
     public static String updated;
+    public static String dailyNotes;
 }

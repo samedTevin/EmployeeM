@@ -18,7 +18,7 @@
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Employee Management" />
-            <TextField fx:id="search" editable="false" promptText="Search : id" />
+            <TextField fx:id="search" promptText="id" />
             <Button mnemonicParsing="false" onAction="#searchEmployee" text="Search" />
          </children>
          <padding>
@@ -29,13 +29,13 @@
    <center>
       <TableView fx:id="employeeTable" fixedCellSize="30.0" maxWidth="795.0" minWidth="408.0" prefHeight="463.0" prefWidth="795.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="43.0" text="Id" />
-          <TableColumn fx:id="nameColumn" prefWidth="130.0" text="Name" />
-            <TableColumn fx:id="positionColumn" prefWidth="164.0" text="Position" />
-            <TableColumn fx:id="departmentColumn" prefWidth="140.0" text="Department" />
-            <TableColumn fx:id="salaryColumn" prefWidth="104.0" text="Salary" />
-            <TableColumn fx:id="statusColumn" prefWidth="110.0" text="Status" />
-            <TableColumn fx:id="ratingColumn" prefWidth="90.0" text="Rating" />
+          <TableColumn fx:id="idColumn" prefWidth="43.0" resizable="false" text="Id" />
+          <TableColumn fx:id="nameColumn" prefWidth="130.0" resizable="false" text="Name" />
+            <TableColumn fx:id="positionColumn" prefWidth="164.0" resizable="false" text="Position" />
+            <TableColumn fx:id="departmentColumn" prefWidth="140.0" resizable="false" text="Department" />
+            <TableColumn fx:id="salaryColumn" prefWidth="104.0" resizable="false" text="Salary" />
+            <TableColumn fx:id="statusColumn" prefWidth="110.0" resizable="false" text="Status" />
+            <TableColumn fx:id="ratingColumn" prefWidth="94.0" resizable="false" text="Rating" />
         </columns>
       </TableView>
    </center>
