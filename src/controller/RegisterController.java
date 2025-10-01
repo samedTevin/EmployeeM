@@ -9,6 +9,7 @@ import repository.UserRepository;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 
 public class RegisterController {
@@ -29,7 +30,11 @@ public class RegisterController {
                 try {
                     userRepository.addUser(user);
                     Alerts.showInformation("User successfully registered");
-                } catch (SQLException e) {
+                }
+                catch(SQLIntegrityConstraintViolationException e){
+                    Alerts.showWarning("Username is already in use");
+                }
+                catch (SQLException e) {
                     Alerts.showError(e.getMessage());
                 }
             }

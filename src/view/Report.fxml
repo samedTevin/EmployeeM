@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane stylesheets="@css/report.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
+<BorderPane prefHeight="838.0" prefWidth="1241.0" stylesheets="@css/report.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
    <top>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="124.0" prefWidth="1245.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Separator prefWidth="200.0" />
             <Label text="Employee Reports" />
@@ -31,30 +31,30 @@
       </HBox>
    </top>
    <right>
-      <VBox alignment="CENTER" prefHeight="314.0" prefWidth="140.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="724.0" prefWidth="162.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Separator prefWidth="200.0" />
             <Label text="Total Employee" textFill="RED" />
             <Separator prefWidth="200.0" />
-            <Label text="Label" />
+            <Label fx:id="totalEmployee" text="Label" />
             <Separator prefWidth="200.0" />
             <Label prefWidth="111.0" text="Average Salary" />
             <Separator prefWidth="200.0" />
-            <Label text="Label" />
+            <Label fx:id="avgSalary" text="Label" />
             <Separator prefWidth="200.0" />
             <Label text="Average Rating" />
             <Separator prefWidth="200.0" />
-            <Label text="Label" />
+            <Label fx:id="avgRating" text="Label" />
             <Separator prefWidth="200.0" />
             <Label text="Active Employee " />
             <Separator prefWidth="200.0" />
-            <Label text="Label" />
+            <Label fx:id="activeEmployee" text="Label" />
             <Separator prefWidth="200.0" />
          </children>
       </VBox>
    </right>
    <center>
-      <GridPane alignment="CENTER" prefHeight="292.0" prefWidth="701.0" BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" maxWidth="1200.0" minWidth="1200.0" prefHeight="604.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -64,29 +64,29 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ScatterChart title="Salary vs Rating" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <BarChart fx:id="barChart" maxWidth="800.0" prefHeight="393.0" prefWidth="800.0" title="Average Salary by Department">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <CategoryAxis fx:id="xAxis" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </ScatterChart>
-            <BarChart prefHeight="150.0" prefWidth="168.0" title="Salary">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT" />
               </yAxis>
             </BarChart>
-            <PieChart prefHeight="150.0" prefWidth="324.0" title="Rating" GridPane.columnIndex="1" />
-            <BarChart title="Active" GridPane.rowIndex="1">
+            <ScatterChart fx:id="scatter" prefHeight="373.0" prefWidth="478.0" title="Salary vs Rating ( x: Rating |  y: Salary) " GridPane.columnIndex="1" GridPane.rowIndex="1">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <NumberAxis fx:id="rating" side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis fx:id="salary" side="LEFT" />
+              </yAxis>
+            </ScatterChart>
+            <PieChart fx:id="ratingCount" prefHeight="357.0" prefWidth="435.0" title="Rating Count" GridPane.columnIndex="1" />
+            <BarChart fx:id="barChart2" prefHeight="322.0" prefWidth="426.0" title="Active Employees by Department" GridPane.rowIndex="1">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" fx:id="xAxis2" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yAxis2" side="LEFT" />
               </yAxis>
             </BarChart>
          </children>
@@ -96,9 +96,10 @@
       <Blend />
    </effect>
    <left>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="499.0" prefWidth="114.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#goToDashboard" text="Return " />
+            <Button mnemonicParsing="false" onAction="#goToDashboard" text="Dashboard" />
+            <Button mnemonicParsing="false" onAction="#refreshCharts" text="Refresh" />
          </children>
       </VBox>
    </left>

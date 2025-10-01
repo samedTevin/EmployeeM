@@ -82,6 +82,7 @@ public class ProfileController implements Initializable {
         String notes = dailyNotes.getText();
         try{
             userRepository.addUserDailyNotes(notes,UserSession.id);
+            UserSession.dailyNotes = notes;
             refreshUpdatedTime();
             Alerts.showInformation("Notes has been saved!");
 
