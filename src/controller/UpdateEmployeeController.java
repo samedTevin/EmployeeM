@@ -37,10 +37,7 @@ public class UpdateEmployeeController implements Initializable {
         position.setText(employee.getPosition());
         department.setValue(employee.getDepartment());
         salary.setText(Double.toString(employee.getSalary()));
-        if(employee.getStatus().equals("Active")) {
-            status.setSelected(true);
-        }
-        status.setSelected(false);
+        status.setSelected(employee.getStatus().equals("Active"));
         rating.setValue(employee.getRating());
 
     }

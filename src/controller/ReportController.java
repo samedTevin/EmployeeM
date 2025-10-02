@@ -49,7 +49,7 @@ public class ReportController implements Initializable {
 
     public void refreshCharts() throws SQLException {
         DepartmentStats departmentStats = report.getDepartmentStats();
-        totalEmployee.setText(String.valueOf(departmentStats.getTotaEmployees()));
+        totalEmployee.setText(String.valueOf(departmentStats.getTotalEmployees()));
         avgSalary.setText(String.format("%.2f", departmentStats.getAvgSalary()));
         avgRating.setText(String.format("%.1f", departmentStats.getAvgRating()));
         activeEmployee.setText(String.valueOf(departmentStats.getActiveEmployees()));

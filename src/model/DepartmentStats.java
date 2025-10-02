@@ -2,7 +2,7 @@ package model;
 
 public class DepartmentStats {
 
-    private int totaEmployees;
+    private int totalEmployees;
     private double avgSalary;
     private double avgRating;
     private int activeEmployees;
@@ -11,8 +11,8 @@ public class DepartmentStats {
 
     }
 
-    public DepartmentStats(int totaEmployees, double avgSalary, double avgRating, int activeEmployees) {
-        this.totaEmployees = totaEmployees;
+    public DepartmentStats(int totalEmployees, double avgSalary, double avgRating, int activeEmployees) {
+        this.totalEmployees = totalEmployees;
         this.avgSalary = avgSalary;
         this.avgRating = avgRating;
         this.activeEmployees = activeEmployees;
@@ -42,12 +42,12 @@ public class DepartmentStats {
         this.avgSalary = avgSalary;
     }
 
-    public int getTotaEmployees() {
-        return totaEmployees;
+    public int getTotalEmployees() {
+        return totalEmployees;
     }
 
-    public void setTotaEmployees(int totaEmployees) {
-        this.totaEmployees = totaEmployees;
+    public void setTotalEmployees(int totalEmployees) {
+        this.totalEmployees = totalEmployees;
     }
 
 

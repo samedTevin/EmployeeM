@@ -136,7 +136,7 @@ public class ReportRepository {
                 double avgSalary = resultSet.getDouble("avg_salary");
 
                 departmentStats.setActiveEmployees(sumActiveEmployee);
-                departmentStats.setTotaEmployees(totalEmployee);
+                departmentStats.setTotalEmployees(totalEmployee);
                 departmentStats.setAvgRating(avgRating);
                 departmentStats.setAvgSalary(avgSalary);
             }
