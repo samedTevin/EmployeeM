@@ -1,43 +1,43 @@
-/* ------------------ Root / Genel Stil ------------------ */
+
 .root {
     -fx-background-color: linear-gradient(to bottom right, #eaf0f4, #d4e2ec);
     -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
 }
 
-/* ------------------ BorderPane ------------------ */
+
 .border-pane {
     -fx-padding: 10;
 }
 
-/* ------------------ Top HBox ------------------ */
+
 .top-hbox {
     -fx-spacing: 10;
     -fx-padding: 10 0 10 0;
     -fx-alignment: center-left;
 }
 
-/* ------------------ Bottom HBox ------------------ */
+
 .bottom-hbox {
     -fx-spacing: 15;
     -fx-padding: 10;
     -fx-alignment: center;
 }
 
-/* ------------------ Right VBox ------------------ */
+
 .right-vbox {
     -fx-spacing: 12;
     -fx-padding: 10;
     -fx-alignment: top-center;
 }
 
-/* ------------------ Label ------------------ */
+
 .label {
     -fx-font-size: 16px;
     -fx-text-fill: #2c3e50;
     -fx-font-weight: 600;
 }
 
-/* ------------------ TextField ------------------ */
+
 .text-field {
     -fx-background-color: #ffffff;
     -fx-border-color: #b0c4de;
@@ -57,18 +57,18 @@
 }
 
 
-/* ------------------ Button ------------------ */
+
 .button {
     -fx-background-color: linear-gradient(to bottom, #3498db, #2980b9);
     -fx-text-fill: #ffffff;
-    -fx-font-size: 13px; /* küçültüldü */
+    -fx-font-size: 13px;
     -fx-font-weight: bold;
-    -fx-padding: 6 12 6 12; /* daha az padding */
-    -fx-background-radius: 6; /* hafif yuvarlatma */
+    -fx-padding: 6 12 6 12;
+    -fx-background-radius: 6;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 2, 0.0, 0, 1);
-    -fx-min-width: 70px; /* küçültüldü */
-    -fx-min-height: 28px; /* küçültüldü */
+    -fx-min-width: 70px;
+    -fx-min-height: 28px;
     -fx-transition: all 0.2s ease-in-out;
 }
 
@@ -80,7 +80,7 @@
     -fx-background-color: linear-gradient(to bottom, #2e86c1, #1b4f72);
 }
 
-/* ------------------ ComboBox ------------------ */
+
 .combo-box {
     -fx-background-color: #ffffff;
     -fx-border-color: #b0c4de;
@@ -96,7 +96,7 @@
     -fx-border-color: #3498db;
 }
 
-/* ------------------ Slider ------------------ */
+
 .slider {
     -fx-control-inner-background: #e0e5e8;
     -fx-padding: 5 0 5 0;
@@ -113,7 +113,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.0, 0, 1);
 }
 
-/* ------------------ TableView ------------------ */
+
 .table-view {
     -fx-background-color: #ffffff;
     -fx-border-color: #b0c4de;

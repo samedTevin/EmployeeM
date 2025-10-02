@@ -19,23 +19,29 @@ public class RegisterController {
     public TextField confirmPassword;
     UserRepository userRepository = new UserRepository();
 
-    public void registerUser(ActionEvent actionEvent){
+    public void registerUser(){
 
         if(username.getText().isEmpty() || password.getText().isEmpty() || confirmPassword.getText().isEmpty()){
             Alerts.showWarning("Please fill all the fields");
         }
         else{
             if(password.getText().equals(confirmPassword.getText())) {
-                User user = new User(username.getText(), password.getText());
-                try {
-                    userRepository.addUser(user);
-                    Alerts.showInformation("User successfully registered");
+                String temp = password.getText();
+                if(temp.length() == 6){
+                    User user = new User(username.getText(), password.getText());
+                    try {
+                        userRepository.addUser(user);
+                        Alerts.showInformation("User successfully registered");
+                    }
+                    catch(SQLIntegrityConstraintViolationException e){
+                        Alerts.showWarning("Username is already in use");
+                    }
+                    catch (SQLException e) {
+                        Alerts.showError(e.getMessage());
+                    }
                 }
-                catch(SQLIntegrityConstraintViolationException e){
-                    Alerts.showWarning("Username is already in use");
-                }
-                catch (SQLException e) {
-                    Alerts.showError(e.getMessage());
+                else{
+                    Alerts.showWarning("Passwords length must be 6 characters\nYour password length: " + temp.length());
                 }
             }
             else{

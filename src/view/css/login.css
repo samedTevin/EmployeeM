@@ -1,4 +1,4 @@
-/* ------------------ Root / Genel Stil ------------------ */
+
 .root {
     -fx-background-color: linear-gradient(to bottom right, #eaf0f4, #d4e2ec);
     -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
@@ -20,9 +20,9 @@
     -fx-background-radius: 8;
     -fx-padding: 10 15 10 15;
     -fx-font-size: 16px;
-    -fx-prompt-text-fill: #95a5a6; /* placeholder rengi */
+    -fx-prompt-text-fill: #95a5a6;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0.0, 0, 2);
-    -fx-min-height: 40px; /* büyütülmüş TextField */
+    -fx-min-height: 40px;
 }
 
 .text-field:focused {
@@ -61,7 +61,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0.0, 0, 4);
 }
 
-/* ------------------ Başlık / Form Header ------------------ */
 .label.form-title {
     -fx-font-size: 24px;
     -fx-text-fill: #1b4f72;

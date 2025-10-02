@@ -2,7 +2,8 @@ package controller;
 
 import helper.Alerts;
 import helper.SceneChanger;
-import javafx.beans.binding.ObjectExpression;
+
+import helper.TextFieldUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,6 +44,10 @@ public class EmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        TextFieldUtils.setOnlyLetters(name);
+        TextFieldUtils.setOnlyLetters(position);
+
         department.getItems().addAll("Management","Finance", "Production", "Engineering", "IT/Software","Legal");
 
         employeeTable.setItems(employees);
@@ -59,6 +64,7 @@ public class EmployeeController implements Initializable {
     }
 
     public void addEmployee(){
+
         try{
             Employee employee = new Employee(name.getText(),
                     position.getText(),
@@ -132,10 +138,15 @@ public class EmployeeController implements Initializable {
             Optional<ButtonType> result = dialog.showAndWait();
 
             if(result.isPresent() && result.get() == ButtonType.OK){
-                Employee updated = controller.getUpdatedEmployee();
-                employeeRepository.update(updated);
-                Alerts.showInformation("Employee Updated");
-                refreshTable();
+                try{
+                    Employee updated = controller.getUpdatedEmployee();
+                    employeeRepository.update(updated);
+                    Alerts.showInformation("Employee Updated");
+                    refreshTable();
+                }
+                catch(NumberFormatException npe){
+                    Alerts.showError("Salary must be a number!");
+                }
             }
             else{
                 Alerts.showError("Employee not updated");
@@ -155,7 +166,7 @@ public class EmployeeController implements Initializable {
         }
     }
 
-    public void searchEmployee(ActionEvent actionEvent){
+    public void searchEmployee(){
         try{
             int id = Integer.parseInt(search.getText());
             Employee employee = employeeRepository.search(id);

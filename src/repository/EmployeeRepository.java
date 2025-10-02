@@ -6,8 +6,7 @@ import model.Employee;
 import utils.Database;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class EmployeeRepository {
 
@@ -85,8 +84,7 @@ public class EmployeeRepository {
     }
 
     public ObservableList<Employee> show() throws SQLException {
-        ObservableList<Employee> employees = FXCollections.observableArrayList(); {
-        };
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
         try{
             connection = database.getConnection();
             statement = connection.createStatement();

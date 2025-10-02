@@ -5,7 +5,6 @@ import helper.SceneChanger;
 import helper.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -41,19 +40,25 @@ public class ProfileController implements Initializable {
 
     public void changePassword()  {
         if(newPassword.getText().equals(confirmNewPassword.getText())){
-            if(UserSession.password.equals(newPassword.getText())){
-                Alerts.showWarning("Your new password cannot be the same!");
+            String temp = newPassword.getText();
+            if(temp.length() == 6){
+                if(UserSession.password.equals(newPassword.getText())){
+                    Alerts.showWarning("Your new password cannot be the same!");
+                }
+                else{
+                    try {
+                        userRepository.updateUserPassword(UserSession.id, newPassword.getText());
+                        UserSession.password = newPassword.getText();
+                        password.setText(UserSession.password);
+                        refreshUpdatedTime();
+                        Alerts.showInformation("Your new password has been changed!");
+                    } catch (SQLException e) {
+                        Alerts.showError(e.getMessage());
+                    }
+                }
             }
             else{
-                try {
-                    userRepository.updateUserPassword(UserSession.id, newPassword.getText());
-                    UserSession.password = newPassword.getText();
-                    password.setText(UserSession.password);
-                    refreshUpdatedTime();
-                    Alerts.showInformation("Your new password has been changed!");
-                } catch (SQLException e) {
-                    Alerts.showError(e.getMessage());
-                }
+                Alerts.showWarning("Passwords length must be 6 characters\nYour password length: " + temp.length());
             }
         }
         else{

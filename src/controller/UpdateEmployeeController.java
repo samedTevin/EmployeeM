@@ -1,5 +1,7 @@
 package controller;
 
+
+import helper.TextFieldUtils;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -24,6 +26,8 @@ public class UpdateEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TextFieldUtils.setOnlyLetters(name);
+        TextFieldUtils.setOnlyLetters(position);
         department.getItems().addAll("Management","Finance", "Production", "Engineering", "IT/Software","Legal");
     }
 

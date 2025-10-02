@@ -1,18 +1,17 @@
-/* ------------------ DialogPane / Genel Stil ------------------ */
+
 .dialog-pane {
     -fx-background-color: linear-gradient(to bottom right, #eaf0f4, #d4e2ec);
     -fx-font-family: "Segoe UI", "Tahoma", sans-serif;
     -fx-padding: 15;
 }
 
-/* ------------------ Label ------------------ */
+
 .dialog-pane .label {
     -fx-font-size: 16px;
     -fx-text-fill: #2c3e50;
     -fx-font-weight: 600;
 }
 
-/* ------------------ TextField ------------------ */
 .dialog-pane .text-field {
     -fx-background-color: #ffffff;
     -fx-border-color: #b0c4de;
@@ -31,7 +30,7 @@
     -fx-border-width: 2;
 }
 
-/* ------------------ ComboBox ------------------ */
+
 .dialog-pane .combo-box {
     -fx-background-color: #ffffff;
     -fx-border-color: #b0c4de;
@@ -47,7 +46,7 @@
     -fx-border-color: #3498db;
 }
 
-/* ------------------ Slider ------------------ */
+
 .dialog-pane .slider {
     -fx-control-inner-background: #e0e5e8;
     -fx-padding: 5 0 5 0;
@@ -65,7 +64,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.0, 0, 1);
 }
 
-/* ------------------ CheckBox ------------------ */
+
 .dialog-pane .check-box {
     -fx-font-size: 14px;
     -fx-text-fill: #2c3e50;
