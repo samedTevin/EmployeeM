@@ -78,9 +78,7 @@ CREATE TABLE employees(
     department VARCHAR(50),
     salary DOUBLE,
     status VARCHAR(20),
-    rating DOUBLE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    rating DOUBLE
 );
 ```
 
